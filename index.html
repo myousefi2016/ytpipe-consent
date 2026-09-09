@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ytpipe</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1a1a1a; --bg:#fff; --mut:#555; --line:#e3e3e3; --acc:#0b5fff; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#e8e8e8; --bg:#111; --mut:#a5a5a5; --line:#2a2a2a; --acc:#6ea8ff; } }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:2.5rem 1.25rem; background:var(--bg); color:var(--fg);
+         font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  main { max-width: 44rem; margin: 0 auto; }
+  h1 { font-size:1.75rem; margin:0 0 .25rem; letter-spacing:-.01em; }
+  .sub { color:var(--mut); margin:0 0 2rem; }
+  h2 { font-size:1.1rem; margin:2rem 0 .5rem; }
+  ul { padding-left:1.15rem; } li { margin:.3rem 0; }
+  a { color:var(--acc); }
+  footer { margin-top:2.5rem; padding-top:1rem; border-top:1px solid var(--line); color:var(--mut); font-size:.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>ytpipe</h1>
+  <p class="sub">A personal tool for planning, reviewing and publishing videos to YouTube channels owned by its operator.</p>
+
+  <h2>What it is</h2>
+  <p>ytpipe is a single-operator command-line tool. It helps one person research topics, draft and
+  review scripts, assemble videos and publish them to their own YouTube channels on a fixed
+  schedule. It is not a hosted service, it has no user accounts, and it is not offered to anyone
+  else.</p>
+
+  <h2>What it does with Google data</h2>
+  <ul>
+    <li>Reads the operator's own channel details to confirm which channel it is acting for.</li>
+    <li>Reads public search and video statistics to inform topic research.</li>
+    <li>Uploads videos to, and manages metadata on, channels the operator owns.</li>
+    <li>Reads the operator's own YouTube Analytics.</li>
+  </ul>
+  <p>Every video is reviewed and approved by a person before it is published. Videos that contain
+  synthetic or AI-assisted media are disclosed as such to YouTube.</p>
+
+  <h2>Documents</h2>
+  <ul>
+    <li><a href="./privacy.html">Privacy policy</a></li>
+    <li><a href="./terms.html">Terms of service</a></li>
+  </ul>
+
+  <footer>Operated by an individual. Contact: <a href="mailto:mehrdad.yousefi2021@gmail.com">mehrdad.yousefi2021@gmail.com</a></footer>
+</main>
+</body>
+</html>

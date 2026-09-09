@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ytpipe — Privacy policy</title>
+<style>
+  :root { color-scheme: light dark; --fg:#1a1a1a; --bg:#fff; --mut:#555; --line:#e3e3e3; --acc:#0b5fff; }
+  @media (prefers-color-scheme: dark) { :root { --fg:#e8e8e8; --bg:#111; --mut:#a5a5a5; --line:#2a2a2a; --acc:#6ea8ff; } }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:2.5rem 1.25rem; background:var(--bg); color:var(--fg);
+         font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; }
+  main { max-width: 44rem; margin: 0 auto; }
+  h1 { font-size:1.6rem; margin:0 0 .25rem; }
+  .sub { color:var(--mut); margin:0 0 2rem; }
+  h2 { font-size:1.05rem; margin:1.8rem 0 .4rem; }
+  ul { padding-left:1.15rem; } li { margin:.3rem 0; }
+  a { color:var(--acc); }
+  footer { margin-top:2.5rem; padding-top:1rem; border-top:1px solid var(--line); color:var(--mut); font-size:.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Privacy policy</h1>
+  <p class="sub">ytpipe. Last updated 9 September 2026.</p>
+
+  <h2>Who this covers</h2>
+  <p>ytpipe is a personal command-line tool operated by one individual for their own YouTube
+  channels. It has no other users. The only Google Account it accesses is the operator's own,
+  authorised by that person through Google's standard OAuth consent flow.</p>
+
+  <h2>What is accessed</h2>
+  <ul>
+    <li>Channel identity and settings for channels the operator owns.</li>
+    <li>Publicly available YouTube search results and video statistics.</li>
+    <li>Video upload and metadata management on the operator's own channels.</li>
+    <li>YouTube Analytics for the operator's own channels.</li>
+  </ul>
+
+  <h2>Where it is stored</h2>
+  <p>All data stays on the operator's own computer. OAuth tokens are written to a
+  permission-restricted local directory. Job records, drafts and generated files are held in a
+  local database and local folders. Nothing is uploaded to any server operated by ytpipe, because
+  no such server exists.</p>
+
+  <h2>What is shared</h2>
+  <p>Nothing is sold, rented or shared. Data is transmitted only to the services the tool is
+  configured to call in order to do its job, namely Google's YouTube APIs and the AI model
+  providers used to draft text and generate media. Their handling of that data is governed by
+  their own terms. Google user data is never used to train any model, and is never passed to a
+  model provider.</p>
+
+  <h2>Retention and deletion</h2>
+  <p>Local data persists until the operator deletes it. Access can be revoked at any time at
+  <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>, which
+  immediately invalidates the stored token. Deleting the local secrets directory removes every
+  stored credential.</p>
+
+  <h2>Limited use</h2>
+  <p>ytpipe's use and transfer of information received from Google APIs adheres to the
+  <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services
+  User Data Policy</a>, including the Limited Use requirements.</p>
+
+  <h2>Contact</h2>
+  <p><a href="mailto:mehrdad.yousefi2021@gmail.com">mehrdad.yousefi2021@gmail.com</a></p>
+
+  <footer><a href="./index.html">Home</a> · <a href="./terms.html">Terms of service</a></footer>
+</main>
+</body>
+</html>
