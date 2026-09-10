@@ -22,14 +22,22 @@
 <body>
 <main>
   <h1>Privacy policy</h1>
-  <p class="sub">ytpipe. Last updated 9 September 2026.</p>
+  <p class="sub">ytpipe. Last updated 10 September 2026.</p>
 
   <h2>Who this covers</h2>
   <p>ytpipe is a personal command-line tool operated by one individual for their own YouTube
   channels. It has no other users. The only Google Account it accesses is the operator's own,
   authorised by that person through Google's standard OAuth consent flow.</p>
 
-  <h2>What is accessed</h2>
+  <h2>YouTube API Services</h2>
+<p>ytpipe uses <strong>YouTube API Services</strong> (the YouTube Data API and the YouTube Analytics API).
+By using it, the operator agrees to be bound by the
+<a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a>. Google's handling of the data
+that flows through those services is described in the
+<a href="http://www.google.com/policies/privacy">Google Privacy Policy</a>.</p>
+<p>The authorised Google data ytpipe accesses is listed below. It is stored only on the operator's
+own computer, is never used to train any model, and is never passed to any model provider.</p>
+<h2>What is accessed</h2>
   <ul>
     <li>Channel identity and settings for channels the operator owns.</li>
     <li>Publicly available YouTube search results and video statistics.</li>
@@ -51,12 +59,20 @@
   model provider.</p>
 
   <h2>Retention and deletion</h2>
-  <p>Local data persists until the operator deletes it. Access can be revoked at any time at
-  <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>, which
+  <p>Local data persists until the operator deletes it. A request to delete stored Google user data is
+honoured by deleting the local database, artifacts and secrets directories, which happens as soon as
+possible and within 7 calendar days of the request. In addition to that procedure, access can be
+revoked at any time on the Google security settings page at
+<a href="https://security.google.com/settings/security/permissions">security.google.com/settings/security/permissions</a>
+(also reachable at
+  <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>), which
   immediately invalidates the stored token. Deleting the local secrets directory removes every
   stored credential.</p>
 
-  <h2>Limited use</h2>
+  <h2>Questions and complaints</h2>
+<p>Questions or complaints about these privacy practices go to the operator at
+<a href="mailto:mehrdad.yousefi2021@gmail.com">mehrdad.yousefi2021@gmail.com</a>.</p>
+<h2>Limited use</h2>
   <p>ytpipe's use and transfer of information received from Google APIs adheres to the
   <a href="https://developers.google.com/terms/api-services-user-data-policy">Google API Services
   User Data Policy</a>, including the Limited Use requirements.</p>
