@@ -36,7 +36,8 @@ By using it, the operator agrees to be bound by the
 that flows through those services is described in the
 <a href="http://www.google.com/policies/privacy">Google Privacy Policy</a>.</p>
 <p>The authorised Google data ytpipe accesses is listed below. It is stored only on the operator's
-own computer, is never used to train any model, and is never passed to any model provider.</p>
+own computer and is never used to train any model. One narrow category leaves the computer, and it is
+described exactly under <a href="#shared">What is shared</a>.</p>
 <h2>What is accessed</h2>
   <ul>
     <li>Channel identity and settings for channels the operator owns.</li>
@@ -51,23 +52,57 @@ own computer, is never used to train any model, and is never passed to any model
   local database and local folders. Nothing is uploaded to any server operated by ytpipe, because
   no such server exists.</p>
 
-  <h2>What is shared</h2>
-  <p>Nothing is sold, rented or shared. Data is transmitted only to the services the tool is
-  configured to call in order to do its job, namely Google's YouTube APIs and the AI model
-  providers used to draft text and generate media. Their handling of that data is governed by
-  their own terms. Google user data is never used to train any model, and is never passed to a
-  model provider.</p>
+  <h2 id="shared">What is shared</h2>
+  <p>Nothing is sold or rented, and nothing is shared with anyone other than the services the tool
+  calls in order to do its job. Those services are Google's YouTube APIs, and the AI providers named
+  below, which are used to draft text and to synthesise narration: <strong>Anthropic</strong>,
+  <strong>OpenAI</strong> and <strong>Google (Gemini)</strong>. Their handling of what they receive is
+  governed by their own terms.</p>
+  <p><strong>Exactly one kind of YouTube data is sent to an AI provider.</strong> Before a script is
+  written, ytpipe asks a language model to choose an angle that videos already on YouTube do not cover,
+  and to do that it sends <strong>the titles of public videos returned by a YouTube search, together
+  with three aggregate figures</strong>: how many results there were, their median view count, and their
+  median duration. Those are public videos, not anyone's private data.</p>
+  <p>Nothing else from the YouTube APIs is sent anywhere: not the operator's channel identity or
+  settings, not their videos' analytics, not their OAuth tokens, and nothing belonging to any other
+  person. The operator is the only user of this tool and is the person whose credentials retrieved the
+  data. No Google user data is used to train any model.</p>
 
   <h2>Retention and deletion</h2>
-  <p>Local data persists until the operator deletes it. A request to delete stored Google user data is
-honoured by deleting the local database, artifacts and secrets directories, which happens as soon as
-possible and within 7 calendar days of the request. In addition to that procedure, access can be
-revoked at any time on the Google security settings page at
-<a href="https://security.google.com/settings/security/permissions">security.google.com/settings/security/permissions</a>
-(also reachable at
-  <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>), which
-  immediately invalidates the stored token. Deleting the local secrets directory removes every
-  stored credential.</p>
+  <p><strong>Data retrieved from the YouTube APIs is deleted automatically after 30 calendar days.</strong>
+  ytpipe does this itself, on every run: the record of public videos found by a search is deleted, and the
+  video titles kept alongside a draft are removed from it. The aggregate view and duration figures are
+  kept, which the YouTube API Services Developer Policies permit for statistics (section III.E.4.b). The
+  operator's own analytics are kept under the same section, and every run refreshes the channel's
+  authorisation before reading anything, so a revoked authorisation stops that access at once.</p>
+  <p>Everything else - the operator's own scripts, audio, images and finished videos - is the operator's
+  own content and stays until they delete it.</p>
+
+  <h2 id="delete">Deleting everything, on request</h2>
+  <p>ytpipe carries the command that does it. <code>ytpipe delete-data</code> lists every stored thing -
+  the local database, the artifacts directories and the secrets directory - and <code>ytpipe delete-data
+  --yes</code> deletes all of it immediately, rather than within the 7 calendar days the YouTube API
+  Services Developer Policies allow (section III.E.4.g). Nothing is kept back and nothing is copied
+  elsewhere first.</p>
+  <p><strong>Deleting the data stored by ytpipe does not, in any way, affect data stored by YouTube.</strong>
+  To delete data on YouTube - your videos, their metadata, your channel - use a YouTube Application
+  (youtube.com or the YouTube app) or an authorized API Client that supports deleting that data.</p>
+
+  <h2 id="revoke">Withdrawing the authorisation</h2>
+  <p>There are two ways, and both end with the stored data gone.</p>
+  <ul>
+    <li><code>ytpipe revoke --channel &lt;name&gt; --yes</code> tells Google the consent is withdrawn, by
+    posting the token to Google's revocation endpoint, and then deletes that channel's stored YouTube API
+    data and the token itself. That is immediate, not within the 7 calendar days section III.D.2.c.i
+    allows.</li>
+    <li>The Google security settings page at
+    <a href="https://security.google.com/settings/security/permissions">security.google.com/settings/security/permissions</a>
+    (also reachable at <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>)
+    withdraws it from Google's side, and the stored token stops working at once. ytpipe checks every token
+    on every run and whenever <code>ytpipe authorization</code> is run; a token Google will no longer
+    refresh is treated as a withdrawn consent, and that channel's stored YouTube API data is deleted then
+    and there, rather than within the 30 calendar days section III.D.2.c.ii allows.</li>
+  </ul>
 
   <h2>Questions and complaints</h2>
 <p>Questions or complaints about these privacy practices go to the operator at
